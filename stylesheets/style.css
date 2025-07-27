@@ -383,4 +383,9 @@ input[type="submit"]:hover {
 
   /* Other mobile-specific styles here */
 }
+<style>
+#music-trigger {
+  display: none;
+}
+</style>
 
