@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>3D contact form</title>
+    <meta name="description" content="A contact form with some fancy 3D effects" />
+    <meta name="keywords" content="css3, transforms, transitions, contact form, 3d" />
+    <meta name="author" content="PeHaa for PEPSized" />
+    <script src="js/modernizr.js" type="text/javascript" charset="utf-8"></script>
+     
+
+    <!--[if IE 8]>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#contact").addClass("target");
+            $("#flip2back, #close").click(function(e){
+                $(".target").removeClass("target");
+                e.preventDefault();
+            });
+            $("#open, #flip").click(function(e){
+                var $anchor = $(this);
+                $($anchor.attr('href')).addClass("target");
+                e.preventDefault();
+            });
+        });
+    </script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/custom.css"> <!-- Link to your custom CSS -->
+    <style>
+        .back {
+            text-align: center; /* Center-align the content in the middle */
+        }
+        .back p {
+            margin: 10px 0; /* Add some vertical spacing between paragraphs */
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" src="/Music/Happy Birthday (Piano Version).mp3"></audio>
+<section class="container" id="contact" >
+    <form class="flip">
+        <div class="front">
+            <h2>Från Mina och Habib</h2>
+            <p></p>
+            <p>85229 Sundsvall Sweden</p>
+            <a id="flip2back" href="#">Tryck för att öppna!</a>
+        </div>
+        <div id="content" class="back">
+            <div id="letter">
+                <div class="container">
+                    <div class="flip">
+                        <div class="front"></div>
+                        <div class="back">
+                            <h2>🎉 Tänk dig! Snart fyller jag 2 år! 🎈</h2>
+                            <p>Jag ska ha kalas i Prinsessrummet på Leos Lekland och jag blir superglad om du vill komma och fira med mig! 🎉👑 </p>
+                            <p>📅 Datum: Fredag 2 augusti</p>
+                            <p>⏰ Tid: 13:15–16:15</p>
+                            <p>📍 Plats: Leo’s Lekland Sundsvall, Antennvägen 39</p>
+                            <p>Vi ska leka, busa och äta tårta! 🎂💖</p>
+                            <p>Svara gärna senast 30 juli 💌 </p>
+                            <a id="close" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="top">
+                <a id="flip" href="#contact">Vända</a>
+            </div>
+            <div id="lid" class="container">
+                <div class="flip">
+                    <div class="front">
+                        <div>
+                            <label for="name"></label>
+                            <input type="text"  id="name" name="name">
+                        </div>
+                        <div>
+                            <label for="mail"></label>
+                            <input type="text" id="mail" name="mail" >
+                        </div>
+                        <a id="open" href="#content">Öppna</a>
+                    </div>
+                    <div class="back"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("open").addEventListener("click", function () {
+            const music = document.getElementById("background-music");
+            if (music && music.paused) {
+                music.play().catch(function (error) {
+                    console.log("Autoplay-blockerad tills användaren interagerar", error);
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
+ 
